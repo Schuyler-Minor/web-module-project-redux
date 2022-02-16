@@ -5,7 +5,7 @@ import MovieFooter from "./MovieFooter";
 import { connect } from "react-redux";
 
 const MovieList = (props) => {
-  const movies = props;
+  const { movies } = props;
 
   return (
     <div className="col">
@@ -21,7 +21,7 @@ const MovieList = (props) => {
         </thead>
 
         <tbody>
-          {props.movies.map((movie) => (
+          {movies.map((movie) => (
             <MovieListItem key={movie.id} movie={movie} />
           ))}
         </tbody>
@@ -34,7 +34,7 @@ const MovieList = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.movies,
+    movies: state.movieReducer.movies,
   };
 };
 
